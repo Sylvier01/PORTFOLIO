@@ -1,0 +1,48 @@
+.threejs-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  
+  .threejs-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    
+    canvas {
+      outline: none;
+      cursor: grab;
+      
+      &:active {
+        cursor: grabbing;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .threejs-container {
+    .threejs-canvas {
+      canvas {
+        touch-action: none;
+      }
+    }
+  }
+}
+
+// Animation for smooth entrance
+.threejs-container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
