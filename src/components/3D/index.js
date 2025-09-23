@@ -1,10 +1,18 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import { useLocation } from 'react-router-dom';
 
 import { scenePortal } from './SceneManager';
 import './index.scss';
 
 const ThreeD = () => {
+    const location = useLocation();
+    
+    // Don't render 3D canvas on home page
+    if (location.pathname === '/') {
+        return null;
+    }
+
     return (
         <div className="threejs-container">
             <Canvas

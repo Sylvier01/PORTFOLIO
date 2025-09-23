@@ -14,10 +14,13 @@ export const scenePortal = tunnel();
 const SceneManager = () => {
   const location = useLocation();
   
+  // Don't render anything for home page - it has its own liquid background
+  if (location.pathname === '/') {
+    return null;
+  }
+  
   const renderSceneForRoute = () => {
     switch (location.pathname) {
-      case '/':
-        return <HomeTorus />;
       case '/about':
         return <AboutSphere />;
       case '/experience':
@@ -29,7 +32,7 @@ const SceneManager = () => {
       case '/contact':
         return <ContactCylinder />;
       default:
-        return <HomeTorus />;
+        return null;
     }
   };
 
