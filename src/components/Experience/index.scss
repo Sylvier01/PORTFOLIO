@@ -1,5 +1,11 @@
 .experience-page {
+    position: relative;
+    z-index: 10;
+    
     .text-zone {
+        position: relative;
+        z-index: 20;
+        
         p {
             margin-bottom: 20px;
             color: #fff;
@@ -7,6 +13,11 @@
             font-family: sans-serif;
             font-weight: 300;
             max-width: 100%;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+        
+        h1 {
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
         }
     }
 }
@@ -20,6 +31,7 @@
     height: 80%;
     overflow-y: auto;
     padding-right: 20px;
+    z-index: 20;
 
     /* Custom scrollbar */
     &::-webkit-scrollbar {
@@ -118,18 +130,19 @@
 
 .timeline-content {
     padding: 20px;
-    background: rgba(0, 255, 127, 0.1);
-    border: 1px solid rgba(0, 255, 127, 0.3);
+    background: rgba(0, 255, 127, 0.15);
+    border: 1px solid rgba(0, 255, 127, 0.4);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     transition: all 0.3s ease;
     animation: fadeInUp 0.6s ease-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
     &:hover {
-        background: rgba(0, 255, 127, 0.15);
-        border-color: rgba(0, 255, 127, 0.5);
+        background: rgba(0, 255, 127, 0.25);
+        border-color: rgba(0, 255, 127, 0.6);
         transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 255, 127, 0.2);
+        box-shadow: 0 10px 25px rgba(0, 255, 127, 0.3);
     }
 }
 

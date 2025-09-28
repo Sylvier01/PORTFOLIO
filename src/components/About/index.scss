@@ -1,3 +1,22 @@
+.about-page {
+  position: relative;
+  z-index: 10;
+  
+  .text-zone {
+    position: relative;
+    z-index: 20;
+    
+    p {
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+    
+    h1 {
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
 .stage-cube-cont {
   width: 50%;
   height: 100%;
@@ -7,6 +26,7 @@
   position: absolute;
   right: 0;
   overflow: hidden;
+  z-index: 20;
 }
 
 .cubespinner {

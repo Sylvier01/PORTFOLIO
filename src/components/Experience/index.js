@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loader from 'react-loaders'
 
 import AnimatedLetters from '../AnimatedLetters'
+import TubesBackground from '../TubesBackground'
 import './index.scss'
 
 const workExperience = [
@@ -72,6 +73,7 @@ const Experience = () => {
 
   return (
     <>
+      <TubesBackground />
       <div className="container experience-page">
         <div className="text-zone">
           <h1>

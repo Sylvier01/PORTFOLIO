@@ -7,9 +7,9 @@ import './index.scss';
 
 const ThreeD = () => {
     const location = useLocation();
-    
-    // Don't render 3D canvas on home page
-    if (location.pathname === '/') {
+
+    // Don't render 3D canvas on pages with custom backgrounds
+    if (location.pathname === '/' || location.pathname === '/experience' || location.pathname === '/about') {
         return null;
     }
 

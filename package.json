@@ -27,6 +27,7 @@
     "sass": "1.80.6",
     "styled-components": "6.1.13",
     "three": "^0.169.0",
+    "three-custom-shader-material": "^6.3.7",
     "tsparticles": "3.5.0",
     "tunnel-rat": "^0.1.2",
     "web-vitals": "4.2.4"

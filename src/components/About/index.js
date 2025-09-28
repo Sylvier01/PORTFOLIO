@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loader from 'react-loaders'
 
 import AnimatedLetters from '../AnimatedLetters'
+import BlackHole3D from '../BlackHole3D'
 import './index.scss'
 
 const About = () => {
@@ -29,6 +30,7 @@ const About = () => {
 
   return (
     <>
+      <BlackHole3D />
       <div className="container about-page">
         <div className="text-zone">
           <h1>
