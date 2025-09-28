@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loader from 'react-loaders'
 
 import AnimatedLetters from '../AnimatedLetters'
+import BokehBackground from '../BokehBackground'
 import './index.scss'
 
 // Projects data - easily scalable for future additions
@@ -193,6 +194,7 @@ const Projects = () => {
 
   return (
     <>
+      <BokehBackground />
       <div className="container projects-page">
         <div className="text-zone">
           <h1>

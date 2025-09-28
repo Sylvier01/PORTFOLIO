@@ -9,7 +9,7 @@ const ThreeD = () => {
     const location = useLocation();
 
     // Don't render 3D canvas on pages with custom backgrounds
-    if (location.pathname === '/' || location.pathname === '/experience' || location.pathname === '/about') {
+    if (location.pathname === '/' || location.pathname === '/experience' || location.pathname === '/about' || location.pathname === '/projects') {
         return null;
     }
 
@@ -28,18 +28,12 @@ const ThreeD = () => {
                     minPolarAngle={Math.PI / 2}
                 />
                 <ambientLight intensity={0.5} />
-                <spotLight
-                    position={[10, 10, 10]}
-                    angle={0.15}
-                    penumbra={1}
-                    decay={0}
-                    intensity={Math.PI}
-                />
-                <pointLight
-                    position={[-10, -10, -10]}
-                    decay={0}
-                    intensity={Math.PI}
-                />
+              
+             
+                <pointLight position={[30, 20, 10]} color={0xff6060}   />
+
+
+            <pointLight position={[-30, -20, -10]} color={0x6090ff} />
 
                 {/* This is where the tunneled 3D content will appear */}
                 <scenePortal.Out />

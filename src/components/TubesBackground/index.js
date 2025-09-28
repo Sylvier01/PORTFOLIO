@@ -20,13 +20,10 @@ const TubesBackground = () => {
 
                 // Import the tubes library
                 const tubesModule = await import('../../lib/tubes1.min.js');
-                console.log('Tubes module loaded:', tubesModule);
 
                 const TubesCursor = tubesModule.default;
-                console.log('TubesCursor function:', TubesCursor);
 
                 if (canvasRef.current && !appRef.current && TubesCursor) {
-                    console.log('Creating tubes app...');
 
                     // Initialize the tubes cursor exactly like the CodePen
                     appRef.current = TubesCursor(canvasRef.current, {
@@ -41,16 +38,7 @@ const TubesBackground = () => {
 
                     console.log('Tubes app created:', appRef.current);
                     
-                    // Test if the canvas is rendering
-                    setTimeout(() => {
-                        console.log('Canvas dimensions:', {
-                            width: canvasRef.current.width,
-                            height: canvasRef.current.height,
-                            clientWidth: canvasRef.current.clientWidth,
-                            clientHeight: canvasRef.current.clientHeight
-                        });
-                    }, 1000);
-
+             
                     // Add click event for color randomization exactly like CodePen
                     const handleClick = () => {
                         if (appRef.current && appRef.current.tubes) {
