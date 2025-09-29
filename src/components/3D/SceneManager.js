@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import tunnel from 'tunnel-rat';
 
 
-import ContactCylinder from './primitives/ContactCylinder';
+import Dragon from './primitives/Dragon';
 import SkillsNoisySphere from './primitives/SkillsOctahedron';
 
 // Create the tunnel for 3D content
@@ -21,7 +21,7 @@ const SceneManager = () => {
       case '/skills':
         return <SkillsNoisySphere />;
       case '/contact':
-        return <ContactCylinder />;
+        return <Dragon scale={[0.4,0.4,0.4]} position={[2,-1.5,0]} />;
       default:
         return null;
     }

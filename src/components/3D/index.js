@@ -1,4 +1,4 @@
-import { OrbitControls } from '@react-three/drei';
+import { Environment ,OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useLocation } from 'react-router-dom';
 
@@ -27,13 +27,11 @@ const ThreeD = () => {
                     maxPolarAngle={Math.PI / 2}
                     minPolarAngle={Math.PI / 2}
                 />
+                <Environment preset='sunset' />
                 <ambientLight intensity={0.5} />
               
              
-                <pointLight position={[30, 20, 10]} color={0xff6060}   />
-
-
-            <pointLight position={[-30, -20, -10]} color={0x6090ff} />
+    
 
                 {/* This is where the tunneled 3D content will appear */}
                 <scenePortal.Out />
