@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react'
 
 import {
-  faAws,
-  faDocker,
-  faGitAlt,
-  faGolang,
-  faJsSquare,
-  faPython,
+  faCss3,
+  faGithub,
+  faHtml5,
+  faJs,
+  faReact,  
+  faWordpress,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loader from 'react-loaders'
@@ -41,39 +41,35 @@ const About = () => {
             />
           </h1>
           <p>
-            I’m a DevOps and Full Stack Engineer with over 2 years of
-            experience, specializing in automating workflows, optimizing CI/CD
-            pipelines, and deploying intelligent systems. My expertise spans
-            across DevOps, full-stack, blockchain development, and aritificial
-            intelligence, with a strong foundation in security.
+            I’m a Three.js developer with over 2 years of
+            experience, specializing in Product configurators, 3D animations and
+            visualizations. I do a lot of shader programming using GLSL too.
           </p>
           <p>
-            I’m passionate about solving real-world problems through innovative
-            technology and continuously learning to stay ahead of industry
-            trends. Whether it's streamlining infrastructure or building
-            scalable applications, I bring a holistic approach to every project.
+            I’m also a React Native dev and have a created a handful of them too, check out my projects page
+            to see the apps I have created.
           </p>
         </div>
 
         <div className="stage-cube-cont">
           <div className="cubespinner">
             <div className="face1">
-              <FontAwesomeIcon icon={faPython} color="#4B8BBE" />
+              <FontAwesomeIcon icon={faReact} color="#4B8BBE" />
             </div>
             <div className="face2">
-              <FontAwesomeIcon icon={faAws} color="#F06529" />
+              <FontAwesomeIcon icon={faJs} color="#F06529" />
             </div>
             <div className="face3">
-              <FontAwesomeIcon icon={faDocker} color="#28A4D9" />
+              <FontAwesomeIcon icon={faHtml5} color="#28A4D9" />
             </div>
             <div className="face4">
-              <FontAwesomeIcon icon={faGolang} color="#5ED4F4" />
+              <FontAwesomeIcon icon={faCss3} color="#5ED4F4" />
             </div>
             <div className="face5">
-              <FontAwesomeIcon icon={faJsSquare} color="#EFD81D" />
+              <FontAwesomeIcon icon={faWordpress} color="#EFD81D" />
             </div>
             <div className="face6">
-              <FontAwesomeIcon icon={faGitAlt} color="#EC4D28" />
+              <FontAwesomeIcon icon={faGithub} color="#EC4D28" />
             </div>
           </div>
         </div>

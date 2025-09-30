@@ -26,9 +26,7 @@ const Home = () => {
           A 3D Web Developer 
          </h1>
           <h2>
-           have a project? talk to me through here <br/>
-
-            
+           have a project? talk to me through here <br/>            
           </h2>
        
         </div>

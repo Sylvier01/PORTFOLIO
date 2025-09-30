@@ -130,8 +130,7 @@ const Contact = () => {
             />
           </h1>
           <p>
-            I’m open to new opportunities and collaborations! If you’re looking
-            for someone who can bring fresh ideas and deliver impactful results,
+            I’m open to new opportunities and collaborations! 
             let’s get in touch!
           </p>
 
