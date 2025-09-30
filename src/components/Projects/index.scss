@@ -19,8 +19,8 @@
 
     .filter-btn {
         padding: 8px 16px;
-        background: rgba(0, 255, 127, 0.1);
-        border: 1px solid rgba(0, 255, 127, 0.3);
+        background: rgba(255,0,0,0.1);
+        border: 1px solid rgba(255,0,0,0.3);
         border-radius: 20px;
         color: #fff;
         font-size: 14px;
@@ -29,14 +29,14 @@
         transition: all 0.3s ease;
 
         &:hover {
-            background: rgba(0, 255, 127, 0.2);
-            border-color: rgba(0, 255, 127, 0.5);
+            background: rgba(255,0,0,0.2);
+            border-color: rgba(255,0,0,0.5);
         }
 
         &.active {
-            background: #00ff7f;
+            background: #ff4500;
             color: #000;
-            border-color: #00ff7f;
+            border-color: #ff4500;
         }
     }
 }
@@ -62,7 +62,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #00ff7f;
+        background: #ff4500;
         border-radius: 4px;
 
         &:hover {
@@ -79,8 +79,8 @@
 }
 
 .project-card {
-    background: rgba(0, 255, 127, 0.05);
-    border: 1px solid rgba(0, 255, 127, 0.2);
+    background: rgba(255,0,0,0.05);
+    border: 1px solid rgba(255,0,0,0.2);
     border-radius: 15px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -88,10 +88,10 @@
     backdrop-filter: blur(10px);
 
     &:hover {
-        background: rgba(0, 255, 127, 0.1);
-        border-color: rgba(0, 255, 127, 0.4);
+        background: rgba(255,0,0,0.1);
+        border-color: rgba(255,0,0,0.4);
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 255, 127, 0.2);
+        box-shadow: 0 15px 35px rgba(255,0,0,0.2);
     }
 }
 
@@ -128,8 +128,8 @@
         flex-wrap: wrap;
 
         .category {
-            background: rgba(0, 255, 127, 0.2);
-            color: #00ff7f;
+            background: rgba(255,0,0,0.2);
+            color: #ff4500;
             padding: 4px 12px;
             border-radius: 12px;
             font-size: 12px;
@@ -182,7 +182,7 @@
 
     .company {
         font-size: 14px;
-        color: #00ff7f;
+        color: #ff4500;
         margin: 0;
         font-weight: 500;
         font-family: 'Helvetica Neue', sans-serif;
@@ -226,7 +226,7 @@
                 content: '●';
                 position: absolute;
                 left: 0;
-                color: #00ff7f;
+                color: #ff4500;
                 font-size: 10px;
                 top: 2px;
             }
@@ -268,7 +268,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        color: #00ff7f;
+        color: #ff4500;
         text-decoration: none;
         font-size: 14px;
         font-weight: 500;

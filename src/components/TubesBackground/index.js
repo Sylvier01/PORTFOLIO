@@ -86,11 +86,14 @@ const TubesBackground = () => {
     }, []);
 
     return (
-        <canvas
-            ref={canvasRef}
-            id="canvas"
-            className="tubes-background"
-        />
+        <div className="tubes-background-container">
+            <canvas
+                ref={canvasRef}
+                id="canvas"
+                className="tubes-background"
+            />
+            <div className="tubes-overlay" />
+        </div>
     );
 };
 

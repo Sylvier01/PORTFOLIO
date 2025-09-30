@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, } from 'react';
 
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import {
   faBars,
   faBriefcase,
@@ -9,20 +9,19 @@ import {
   faLaptopCode,
   faScrewdriverWrench,
   faUser,
-  faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, NavLink } from 'react-router-dom'
 
-import codechefLogo from '../../assets/images/codechef.png'
+
 import LogoS from '../../assets/images/logo-s.png'
-import LogoSubtitle from '../../assets/images/Sudip_logo_white.png'
 
 import './index.scss'
 
 const Sidebar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const sidebarRef = useRef(null);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -30,7 +29,7 @@ const Sidebar = () => {
       setIsMobile(mobile);
       // Auto-expand on desktop, collapsed on mobile
       if (!mobile) {
-        setIsExpanded(true);
+        setIsExpanded(false);
       } else {
         setIsExpanded(false);
       }
@@ -41,19 +40,38 @@ const Sidebar = () => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Only collapse if sidebar is expanded and click is outside the sidebar
+      if (isExpanded && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsExpanded(false);
+      }
+    };
+
+    // Add event listener when sidebar is expanded
+    if (isExpanded) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    // Cleanup event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isExpanded]);
+
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
     <>
-      <div className={`nav-bar ${isExpanded ? 'expanded' : 'collapsed'}`}>
+      <div ref={sidebarRef} className={`nav-bar ${isExpanded ? 'expanded' : 'collapsed'}`}>
         <div className="sidebar-header">
           <Link className="logo" to="/">
             <img src={LogoS} alt="Logo" />
-            {isExpanded && <img className="sub-logo" src={LogoSubtitle} alt="sudip" />}
+            {isExpanded && <h1 className='LogoName'>Washington</h1>}
           </Link>
-          
+
           <button className="toggle-btn" onClick={toggleSidebar}>
             <FontAwesomeIcon icon={faBars} />
           </button>
@@ -64,7 +82,7 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faHome} />
             {isExpanded && <span className="nav-text">Home</span>}
           </NavLink>
-          
+
           <NavLink activeclassname="active" className="about-link" to="/about">
             <FontAwesomeIcon icon={faUser} />
             {isExpanded && <span className="nav-text">About</span>}
@@ -112,7 +130,7 @@ const Sidebar = () => {
           <ul>
             <li>
               <a
-                href="https://www.linkedin.com/in/banerjee-sudip/"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
                 title="LinkedIn"
@@ -123,7 +141,18 @@ const Sidebar = () => {
             </li>
             <li>
               <a
-                href="https://github.com/metal-oopa"
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                title="youtube"
+              >
+                <FontAwesomeIcon icon={faYoutube} />
+                {isExpanded && <span>Youtube</span>}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
                 target="_blank"
                 rel="noreferrer"
                 title="GitHub"
@@ -132,7 +161,18 @@ const Sidebar = () => {
                 {isExpanded && <span>GitHub</span>}
               </a>
             </li>
-      
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                title="Twitter"
+              >
+                <FontAwesomeIcon icon={faTwitter} />
+                {isExpanded && <span>Twitter</span>}
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>

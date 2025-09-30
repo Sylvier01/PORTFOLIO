@@ -31,11 +31,11 @@ const Box = styled.div`
   &:before {
     content: '<music>';
     font-family: 'La Belle Aurore', cursive;
-    color: #00ff7f;
+    color: #ff4500;
     font-size: 18px;
     position: absolute;
-    margin-top: -20px;
-    left: -60px;
+    margin-top: -25px;
+    left: -3px;
     opacity: 0.9;
     line-height: 20 px;
   }
@@ -43,12 +43,12 @@ const Box = styled.div`
   &:after {
     content: '<music/>';
     font-family: 'La Belle Aurore', cursive;
-    color: #00ff7f;
+    color: #ff4500;
     font-size: 18px;
     line-height: 20px;
     position: absolute;
-    left: -60px;
-    bottom: -20px;
+    left: -3px;
+    bottom: -30px;
     opacity: 0.9;
   }
 `
@@ -65,13 +65,13 @@ const play = keyframes`
 }
 `
 const Line = styled.span`
-  background: #00ff7f;
+  background: #ff4500;
   border: 1px solid;
 
   animation: ${play} 1s ease infinite;
   animation-play-state: ${(props) => (props.itemScope ? 'running' : 'paused')};
   height: 1rem;
-  width: 2px;
+  width: 5px;
   margin: 0 0.1rem;
 `
 const SoundBar = () => {

@@ -60,7 +60,7 @@
       transition: all 0.3s ease;
 
       &:hover {
-        color: #ffd700;
+        color: #ff0000;
         background: rgba(255, 215, 0, 0.1);
       }
     }
@@ -100,18 +100,18 @@
       }
 
       &:hover {
-        color: #ffd700;
+        color: #ff0000;
         background: rgba(255, 215, 0, 0.1);
         transform: translateX(5px);
       }
 
       &.active {
-        color: #ffd700;
+        color: #ff0000;
         background: linear-gradient(90deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.05) 100%);
-        border-right: 3px solid #ffd700;
+        border-right: 3px solid #ff0000;
 
         svg {
-          color: #ffd700;
+          color: #ff0000;
         }
       }
     }
@@ -169,7 +169,7 @@
           }
 
           &:hover {
-            color: #ffd700;
+            color: #ff0000;
             transform: translateX(3px);
 
             img {
