@@ -6,7 +6,7 @@ import {
   faGithub,
   faHtml5,
   faJs,
-  faReact,  
+  faReact,
   faWordpress,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

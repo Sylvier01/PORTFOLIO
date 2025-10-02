@@ -29,7 +29,7 @@ const Sidebar = () => {
       setIsMobile(mobile);
       // Auto-expand on desktop, collapsed on mobile
       if (!mobile) {
-        setIsExpanded(false);
+        setIsExpanded(true);
       } else {
         setIsExpanded(false);
       }

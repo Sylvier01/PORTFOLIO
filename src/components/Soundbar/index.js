@@ -8,8 +8,8 @@ const Box = styled.div`
   display: flex;
   cursor: pointer;
   position: fixed;
-  right: 8rem;
-  top: 3rem;
+  right: clamp(1rem, 8vw, 8rem);
+  top: clamp(1.5rem, 5vh, 3rem);
   z-index: 3;
 
   & > *:nth-child(1) {
@@ -28,28 +28,18 @@ const Box = styled.div`
     animation-delay: 0.8s;
   }
 
-  &:before {
-    content: '<music>';
-    font-family: 'La Belle Aurore', cursive;
-    color: #ff4500;
-    font-size: 18px;
-    position: absolute;
-    margin-top: -25px;
-    left: -3px;
-    opacity: 0.9;
-    line-height: 20 px;
+
+
+  @media (max-width: 768px) {
+    right: 1rem;
+    top: 1rem;
+    transform: scale(0.8);
+    
+    &:before {
+
   }
 
-  &:after {
-    content: '<music/>';
-    font-family: 'La Belle Aurore', cursive;
-    color: #ff4500;
-    font-size: 18px;
-    line-height: 20px;
-    position: absolute;
-    left: -3px;
-    bottom: -30px;
-    opacity: 0.9;
+
   }
 `
 
@@ -70,9 +60,21 @@ const Line = styled.span`
 
   animation: ${play} 1s ease infinite;
   animation-play-state: ${(props) => (props.itemScope ? 'running' : 'paused')};
-  height: 1rem;
-  width: 5px;
-  margin: 0 0.1rem;
+  height: clamp(0.75rem, 2vh, 1rem);
+  width: clamp(3px, 1vw, 5px);
+  margin: 0 clamp(0.05rem, 0.5vw, 0.1rem);
+
+  @media (max-width: 768px) {
+    height: 0.875rem;
+    width: 4px;
+    margin: 0 0.075rem;
+  }
+
+  @media (max-width: 480px) {
+    height: 0.75rem;
+    width: 3px;
+    margin: 0 0.05rem;
+  }
 `
 const SoundBar = () => {
   const ref = useRef(null)
