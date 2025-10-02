@@ -163,32 +163,3 @@ html {
   }
 }
 
-// Extra small devices
-@media (max-width: 480px) {
-  .tags {
-    left: 3.5rem;
-    font-size: 0.875rem;
-  }
-
-  .container {
-    min-height: 20rem;
-    padding: 0 0.5rem;
-  }
-
-  .container.contact-page,
-  .container.about-page,
-  .container.skills-page,
-  .container.experience-page,
-  .container.projects-page {
-    .text-zone {
-      width: 95%;
-
-      h1 {
-        font-size: clamp(1.5rem, 10vw, 2rem);
-        margin-bottom: 1rem;
-
-     
-      }
-    }
-  }
-}

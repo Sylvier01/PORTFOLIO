@@ -7,9 +7,15 @@ import './index.scss';
 
 const ThreeD = () => {
     const location = useLocation();
+    const isMobile = window.innerWidth <= 768;
 
     // Don't render 3D canvas on pages with custom backgrounds
     if (location.pathname === '/' || location.pathname === '/experience' || location.pathname === '/about' || location.pathname === '/projects') {
+        return null;
+    }
+    
+    // Hide dragon model on mobile for contact page
+    if (location.pathname === '/contact' && isMobile) {
         return null;
     }
 
