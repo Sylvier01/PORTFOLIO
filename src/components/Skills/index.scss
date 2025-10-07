@@ -1,18 +1,119 @@
-.tagcloud-wrap {
-  // background: gray;
-  float: right;
-  width: 53%;
-  height: 115%;
-  margin-top: -3%;
+.container.skills-page {
+  position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
 
-  .tagcloud {
-    color: #ff4500;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 650;
-    margin: 10% auto;
+  .text-zone {
+    position: absolute !important;
+    top: 50% !important;
+    left: 11% !important;
+    width: 35% !important;
+    z-index: 10 !important;
+
+    h1 {
+      font-size: 3.3rem !important;
+      color: #ff6347 !important;
+      margin-bottom: 2rem !important;
+      line-height: 1.2 !important;
+    }
+
+    p {
+      font-size: 1.9rem !important;
+      line-height: 1.6 !important;
+      color: #fff !important;
+      margin-bottom: 1.5rem !important;
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
   }
-  .tagcloud--item:hover {
-    color: #ff4500;
+
+  .skills-grid {
+    position: absolute !important;
+    top: 50% !important;
+    right: 8% !important;
+    width: 40% !important;
+    z-index: 10 !important;
+
+    h2 {
+      font-size: 3.5rem !important;
+      color: #ff6347 !important;
+      margin-bottom: 2rem !important;
+    }
+
+    .skills-list {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .skill-item {
+      position: relative !important;
+      display: inline-block !important;
+      background: rgba(255, 99, 71, 0.1) !important;
+      border: 1px solid rgba(255, 99, 71, 0.3) !important;
+      border-radius: 0.5rem !important;
+      padding: 0.8rem 1.2rem !important;
+      margin: 0.3rem !important;
+      color: #ff6347 !important;
+      font-size: 1.85rem !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+      cursor: pointer !important;
+
+      &:hover {
+        background: rgba(255, 99, 71, 0.2) !important;
+        border-color: #ff6347 !important;
+        transform: translateY(-2px) !important;
+      }
+    }
   }
+}
+
+
+// Mobile breakpoint
+@media screen and (max-width: 768px) {
+  .container.skills-page {
+    .text-zone {
+      position: absolute !important;
+      top: 25% !important;
+      left: 50% !important;
+      width: 60% !important;
+
+      h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      p {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    .skills-grid {
+      position: absolute !important;
+      top: 40% !important;
+      left: 30% !important;
+      width: 60% !important;
+
+      h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .skill-item {
+        font-size: 1.25rem !important;
+        padding: 0.6rem 0.9rem !important;
+        margin: 0.25rem !important;
+      }
+    }
+  }
+}
+
+// Hide old components
+.tagcloud-wrap {
+  display: none !important;
 }

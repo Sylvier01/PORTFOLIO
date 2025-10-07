@@ -1,9 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import tunnel from 'tunnel-rat';
 
-
 import Dragon from './primitives/Dragon';
-import SkillsNoisySphere from './primitives/SkillsOctahedron';
 
 // Create the tunnel for 3D content
 export const scenePortal = tunnel();
@@ -18,8 +16,6 @@ const SceneManager = () => {
 
   const renderSceneForRoute = () => {
     switch (location.pathname) {
-      case '/skills':
-        return <SkillsNoisySphere />;
       case '/contact':
         return <Dragon scale={[0.4,0.4,0.4]} position={[2,-1.5,0]} />;
       default:

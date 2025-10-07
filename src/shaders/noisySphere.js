@@ -1,152 +1,162 @@
-// PSRD Noise implementation - Thanks https://github.com/stegu/psrdnoise !!!
-export const psrdnoise = `
-vec4 permute(vec4 i) {
-    vec4 im = mod(i, 289.0);
-    return mod(((im*34.0)+10.0)*im, 289.0);
+// Realistic Sun Shader with Fractal Noise and Fresnel Effects
+export const sunNoiseShader = `
+// 3D Random function
+float random(in vec3 st) {
+    return fract(sin(dot(st, vec3(12.9898, 78.233, 23.112))) * 12943.145);
 }
 
-float psrdnoise(vec3 x, vec3 period, float alpha, out vec3 gradient) {
-    const mat3 M = mat3(0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0);
-    const mat3 Mi = mat3(-0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5);
+// 3D Noise function with time animation
+float noise(in vec3 _pos, in float u_time) {
+    vec3 i_pos = floor(_pos);
+    vec3 f_pos = fract(_pos);
     
-    vec3 uvw = M * x;
-    vec3 i0 = floor(uvw), f0 = fract(uvw);
-    vec3 g_ = step(f0.xyx, f0.yzz), l_ = 1.0 - g_;
-    vec3 g = vec3(l_.z, g_.xy), l = vec3(l_.xy, g_.z);
-    vec3 o1 = min(g, l), o2 = max(g, l);
-    vec3 i1 = i0 + o1, i2 = i0 + o2, i3 = i0 + vec3(1.0);
-    vec3 v0 = Mi * i0, v1 = Mi * i1, v2 = Mi * i2, v3 = Mi * i3;
-    vec3 x0 = x - v0, x1 = x - v1, x2 = x - v2, x3 = x - v3;
+    float i_time = floor(u_time * 0.2);
+    float f_time = fract(u_time * 0.2);
     
-    if(any(greaterThan(period, vec3(0.0)))) {
-        vec4 vx = vec4(v0.x, v1.x, v2.x, v3.x);
-        vec4 vy = vec4(v0.y, v1.y, v2.y, v3.y);
-        vec4 vz = vec4(v0.z, v1.z, v2.z, v3.z);
-        if(period.x > 0.0) vx = mod(vx, period.x);
-        if(period.y > 0.0) vy = mod(vy, period.y);
-        if(period.z > 0.0) vz = mod(vz, period.z);
-        i0 = floor(M * vec3(vx.x, vy.x, vz.x) + 0.5);
-        i1 = floor(M * vec3(vx.y, vy.y, vz.y) + 0.5);
-        i2 = floor(M * vec3(vx.z, vy.z, vz.z) + 0.5);
-        i3 = floor(M * vec3(vx.w, vy.w, vz.w) + 0.5);
+    // Eight corners of a 3D cube
+    float aa = random(i_pos + i_time);
+    float ab = random(i_pos + i_time + vec3(1., 0., 0.));
+    float ac = random(i_pos + i_time + vec3(0., 1., 0.));
+    float ad = random(i_pos + i_time + vec3(1., 1., 0.));
+    float ae = random(i_pos + i_time + vec3(0., 0., 1.));
+    float af = random(i_pos + i_time + vec3(1., 0., 1.));
+    float ag = random(i_pos + i_time + vec3(0., 1., 1.));
+    float ah = random(i_pos + i_time + vec3(1., 1., 1.));
+    
+    // Next time frame
+    float ba = random(i_pos + (i_time + 1.));
+    float bb = random(i_pos + (i_time + 1.) + vec3(1., 0., 0.));
+    float bc = random(i_pos + (i_time + 1.) + vec3(0., 1., 0.));
+    float bd = random(i_pos + (i_time + 1.) + vec3(1., 1., 0.));
+    float be = random(i_pos + (i_time + 1.) + vec3(0., 0., 1.));
+    float bf = random(i_pos + (i_time + 1.) + vec3(1., 0., 1.));
+    float bg = random(i_pos + (i_time + 1.) + vec3(0., 1., 1.));
+    float bh = random(i_pos + (i_time + 1.) + vec3(1., 1., 1.));
+    
+    // Smooth interpolation
+    vec3 t = smoothstep(0., 1., f_pos);
+    float t_time = smoothstep(0., 1., f_time);
+    
+    // Mix all values
+    return mix(
+        mix(
+            mix(mix(aa,ab,t.x), mix(ac,ad,t.x), t.y),
+            mix(mix(ae,af,t.x), mix(ag,ah,t.x), t.y),
+            t.z),
+        mix(
+            mix(mix(ba,bb,t.x), mix(bc,bd,t.x), t.y),
+            mix(mix(be,bf,t.x), mix(bg,bh,t.x), t.y),
+            t.z),
+        t_time);
+}
+
+#define NUM_OCTAVES 6
+
+// Fractal Brownian Motion
+float fBm(in vec3 _pos, in float sz, in float u_time) {
+    float v = 0.0;
+    float a = 0.5; // Increased amplitude
+    _pos *= sz;
+    
+    // Rotation angles for animation - made more noticeable
+    vec3 angle = vec3(-0.01 * u_time, 0.008 * u_time, 0.012 * u_time);
+    mat3 rotx = mat3(1.0, 0.0, 0.0,
+                    0.0, cos(angle.x), -sin(angle.x),
+                    0.0, sin(angle.x), cos(angle.x));
+    mat3 roty = mat3(cos(angle.y), 0.0, sin(angle.y),
+                    0.0, 1.0, 0.0,
+                    -sin(angle.y), 0.0, cos(angle.y));
+    mat3 rotz = mat3(cos(angle.z), -sin(angle.z), 0.0,
+                    sin(angle.z), cos(angle.z), 0.0,
+                    0.0, 0.0, 1.0);
+    
+    for (int i = 0; i < NUM_OCTAVES; ++i) {
+        v += a * noise(_pos, u_time);
+        _pos = rotx * roty * rotz * _pos * 2.0;
+        a *= 0.6; // Less aggressive falloff
     }
-    
-    vec4 hash = permute(permute(permute(vec4(i0.z, i1.z, i2.z, i3.z)) + vec4(i0.y, i1.y, i2.y, i3.y)) + vec4(i0.x, i1.x, i2.x, i3.x));
-    vec4 theta = hash * 3.883222077;
-    vec4 sz = hash * -0.006920415 + 0.996539792;
-    vec4 psi = hash * 0.108705628;
-    vec4 Ct = cos(theta), St = sin(theta);
-    vec4 sz_prime = sqrt(1.0 - sz*sz);
-    vec4 gx, gy, gz;
-    
-    if(alpha != 0.0) {
-        vec4 px = Ct * sz_prime, py = St * sz_prime, pz = sz;
-        vec4 Sp = sin(psi), Cp = cos(psi), Ctp = St*Sp - Ct*Cp;
-        vec4 qx = mix(Ctp*St, Sp, sz), qy = mix(-Ctp*Ct, Cp, sz);
-        vec4 qz = -(py*Cp + px*Sp);
-        vec4 Sa = vec4(sin(alpha)), Ca = vec4(cos(alpha));
-        gx = Ca*px + Sa*qx; 
-        gy = Ca*py + Sa*qy; 
-        gz = Ca*pz + Sa*qz;
-    } else {
-        gx = Ct * sz_prime; 
-        gy = St * sz_prime; 
-        gz = sz;
-    }
-    
-    vec3 g0 = vec3(gx.x, gy.x, gz.x), g1 = vec3(gx.y, gy.y, gz.y);
-    vec3 g2 = vec3(gx.z, gy.z, gz.z), g3 = vec3(gx.w, gy.w, gz.w);
-    vec4 w = 0.5-vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3));
-    w = max(w, 0.0); 
-    vec4 w2 = w * w, w3 = w2 * w;
-    vec4 gdotx = vec4(dot(g0,x0), dot(g1,x1), dot(g2,x2), dot(g3,x3));
-    float n = dot(w3, gdotx);
-    vec4 dw = -6.0 * w2 * gdotx;
-    vec3 dn0 = w3.x * g0 + dw.x * x0;
-    vec3 dn1 = w3.y * g1 + dw.y * x1;
-    vec3 dn2 = w3.z * g2 + dw.z * x2;
-    vec3 dn3 = w3.w * g3 + dw.w * x3;
-    gradient = 39.5 * (dn0 + dn1 + dn2 + dn3);
-    return 39.5 * n;
+    return v;
 }
 `;
 
 export const vertexShader = `
 uniform float uTime;
-uniform float uCoordScale1;
-uniform float uDisplacementScale;
-varying vec3 vPosition;
+varying vec2 vUv;
 varying vec3 vNormal;
-
-${psrdnoise}
+varying vec3 vNormalModel;
+varying vec3 vNormalView;
+varying vec3 vPosition;
 
 void main() {
-    vPosition = position;
+    vUv = uv;
+    vNormal = normalize(mat3(modelMatrix) * normal);
+    vNormalModel = normal;
+    vNormalView = normalize(normalMatrix * normal);
+    vPosition = normalize(vec3(modelViewMatrix * vec4(position, 1.0)).xyz);
     
-    vec3 grad;
-    float d = psrdnoise(position * uCoordScale1 + uTime * vec3(0.1, 0.123, 0.134), vec3(240.0), 4.0 * uTime, grad);
-    grad *= 2.0;
-    
-    vec3 transformed = position + uDisplacementScale * d * normal;
-    vec3 N_ = grad - dot(grad, normal) * normal;
-    vNormal = normal - uDisplacementScale * N_;
-    vNormal = normalize(vNormal);
-    
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.0);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `;
 
 export const fragmentShader = `
-uniform mat4 modelViewMatrix;
 uniform float uTime;
-uniform float uCoordScale2;
-uniform float uCoordScale3;
-uniform float uCoordScale4;
-uniform float uBumpScale;
 varying vec3 vPosition;
-varying vec3 vNormal;
+varying vec3 vNormalView;
 
-${psrdnoise}
+${sunNoiseShader}
 
 void main() {
-    // Bump mapping with multiple noise layers
-    vec3 grad = vec3(0.0);
-    vec3 gradtemp = vec3(0.0);
+    // Scale up the position to make noise patterns more visible
+    vec3 st = vPosition * 3.0;
     
-    float bump = psrdnoise(vPosition * uCoordScale2 + uTime * vec3(0.5, 0.7, 0.6), vec3(240.0), 0.0, grad);
-    grad *= 10.0;
+    // Generate fractal noise patterns for sun surface with larger scale
+    vec3 q = vec3(0.);
+    q.x = fBm(st, 2.0, uTime);
+    q.y = fBm(st + vec3(1.2, 3.2, 1.52), 2.0, uTime);
+    q.z = fBm(st + vec3(0.02, 0.12, 0.152), 2.0, uTime);
     
-    bump += 0.5 * psrdnoise(vPosition * uCoordScale3 + 0.02 * grad + uTime * vec3(-0.7, -0.6, 0.5), vec3(240.0), 0.0, gradtemp);
-    grad = 10.0 * gradtemp;
+    // Secondary noise layer for more detail
+    float n = fBm(st + q * 0.5 + vec3(1.82, 1.32, 1.09), 3.0, uTime);
     
-    bump += 0.25 * psrdnoise(vPosition * uCoordScale4 + uTime * vec3(-0.6, -0.5, -0.7), vec3(240.0), 0.0, gradtemp);
-    grad += 10.0 * gradtemp;
+    // Make noise more pronounced
+    n = n * 2.0 - 1.0; // Remap from [0,1] to [-1,1]
+    q = q * 2.0 - 1.0;
     
-    bump *= 0.2;
-    grad *= 0.2;
+    // Sun surface colors with more contrast
+    vec3 darkColor = vec3(0.8, 0.1, 0.0);  // Dark red
+    vec3 midColor = vec3(1.0, 0.4, 0.0);   // Orange
+    vec3 brightColor = vec3(1.0, 0.9, 0.6); // Bright yellow-white
     
-    // Calculate normal with bump mapping
-    vec3 N_ = grad - dot(grad, vNormal) * vNormal;
-    vec3 normal = vNormal - uBumpScale * N_;
-    normal = normalize(normal);
-    normal = mat3(modelViewMatrix) * normal;
+    // Use noise to blend between colors
+    float colorMix1 = (n + 1.0) * 0.5; // Remap to [0,1]
+    float colorMix2 = (q.x + 1.0) * 0.5;
     
-    // Create a nice gradient color based on position and noise
-    vec3 color1 = vec3(0.6, 0.35, 0.7); // Purple
-    vec3 color2 = vec3(0.2, 0.6, 0.9);  // Blue
-    vec3 color3 = vec3(0.9, 0.4, 0.6);  // Pink
+    vec3 color = mix(darkColor, midColor, colorMix1);
+    color = mix(color, brightColor, colorMix2 * 0.6);
     
-    float mixFactor1 = (bump + 1.0) * 0.5;
-    float mixFactor2 = (sin(uTime * 2.0 + vPosition.x * 3.0) + 1.0) * 0.5;
+    // Add some turbulence patterns
+    float turbulence = abs(n) * abs(q.y) * 2.0;
+    color = mix(color, brightColor, turbulence * 0.3);
     
-    vec3 baseColor = mix(color1, color2, mixFactor1);
-    baseColor = mix(baseColor, color3, mixFactor2 * 0.3);
+    // Fresnel effects for realistic sun glow
+    float fresnelTerm_inner = 0.2 - 0.7 * min(dot(vPosition, vNormalView), 0.0);
+    fresnelTerm_inner = pow(fresnelTerm_inner, 3.0);
     
-    // Simple lighting calculation
-    vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
-    float NdotL = max(dot(normal, lightDir), 0.0);
+    float fresnelTerm_outer = 1.0 + dot(normalize(vPosition), normalize(vNormalView));
+    fresnelTerm_outer = pow(fresnelTerm_outer, 1.5);
     
-    vec3 finalColor = baseColor * (0.3 + 0.7 * NdotL);
+    float fresnelTerm = fresnelTerm_inner + fresnelTerm_outer;
+    
+    // Combine surface texture with Fresnel glow
+    vec3 finalColor = color * (0.8 + 0.4 * fresnelTerm);
+    
+    // Add extra glow intensity for sun effect
+    float glowIntensity = max(dot(vPosition, vNormalView), 0.0);
+    glowIntensity = pow(glowIntensity, 2.0);
+    finalColor += vec3(1.0, 0.6, 0.2) * glowIntensity * 0.3;
+    
+    // Boost overall brightness for sun effect
+    finalColor *= 1.4;
     
     gl_FragColor = vec4(finalColor, 1.0);
 }

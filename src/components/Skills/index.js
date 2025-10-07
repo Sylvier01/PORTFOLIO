@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 import Loader from 'react-loaders'
 
-import WordCloud from './wordcloud'
 import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
 
@@ -10,6 +9,22 @@ const Skills = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
 
   const skillsArray = 'Skills'.split('')
+
+  const skills = [
+    'Blender',
+    'Three.js',
+    'React',
+    'Next.js',
+    'Tailwind CSS',
+    'React Native',
+    'WebGL',
+    'GLSL Shaders',
+    'JavaScript',
+    'TypeScript',
+    'Node.js',
+    'CSS3',
+    'HTML5'
+  ]
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,25 +43,32 @@ const Skills = () => {
               strArray={skillsArray}
               idx={15}
             />
-            <br />
           </h1>
           <p>
-            I have a strong foundation in both development and operations, with
-            a focus on creating seamless, efficient systems. My experience
-            includes automating deployment processes, designing scalable
-            applications, and working with cloud technologies to deliver
-            reliable solutions.
+            I'm a Three.js developer passionate about creating immersive 3D web experiences. 
+            My expertise spans from 3D modeling in Blender to implementing complex WebGL 
+            shaders and interactive animations.
           </p>
           <p>
-            My skill set spans across DevOps, machine learning, full-stack
-            development, and cloud infrastructure. I’m committed to staying
-            updated with the latest advancements and continually refining my
-            expertise to tackle complex challenges effectively.
+            I specialize in building modern web applications with React and Next.js, 
+            crafting responsive designs with Tailwind CSS, and developing mobile 
+            experiences with React Native. My focus is on performance optimization 
+            and creating seamless user interactions in 3D environments.
+          </p>
+          <p>
+            Whether it's particle systems, procedural animations, or complex 3D scenes, 
+            I bring creative visions to life through code and deliver engaging digital experiences.
           </p>
         </div>
 
-        <div className="tagcloud-wrap">
-          <WordCloud />
+        <div className="skills-grid">
+          <div className="skills-list">
+            {skills.map((skill, index) => (
+              <div key={index} className="skill-item">
+                {skill}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
