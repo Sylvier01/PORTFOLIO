@@ -55,10 +55,6 @@ const Skills = () => {
             experiences with React Native. My focus is on performance optimization 
             and creating seamless user interactions in 3D environments.
           </p>
-          <p>
-            Whether it's particle systems, procedural animations, or complex 3D scenes, 
-            I bring creative visions to life through code and deliver engaging digital experiences.
-          </p>
         </div>
 
         <div className="skills-grid">

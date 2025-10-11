@@ -30,146 +30,7 @@ const projects = [
     liveUrl: null, // Private project
     isPrivate: true
   },
-  {
-    id: 2,
-    title: 'Performance Analytics Framework',
-    description: 'Created a comprehensive framework for tracking performance analytics including loading times and click event response times for map libraries, connected to a React frontend.',
-    technologies: ['JavaScript', 'React', 'Performance API', 'Data Visualization', 'Analytics'],
-    category: 'Frontend Development',
-    status: 'Completed',
-    year: '2024',
-    company: 'Mak Design Private Limited',
-    features: [
-      'Real-time performance monitoring',
-      'Map library performance comparison',
-      'React-based dashboard',
-      'Interactive data visualization'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  },
-  {
-    id: 3,
-    title: 'Heavy-Gas Dispersion Model',
-    description: 'Engineered a sophisticated heavy-gas dispersion model with 92% predictive accuracy, enhancing hazard prediction capabilities for safety teams.',
-    technologies: ['Java', 'Mathematical Modeling', 'Algorithm Design', 'Safety Systems'],
-    category: 'Scientific Computing',
-    status: 'Completed',
-    year: '2023',
-    company: 'DRDO',
-    features: [
-      '92% predictive accuracy',
-      'Advanced mathematical modeling',
-      'Safety team integration',
-      'Real-time hazard prediction'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  },
-  {
-    id: 4,
-    title: 'Java Swing GUI Application',
-    description: 'Designed and implemented a user-friendly Java Swing GUI validated through usability testing to streamline end-user interactions.',
-    technologies: ['Java', 'Swing', 'GUI Design', 'Usability Testing', 'UX/UI'],
-    category: 'Desktop Application',
-    status: 'Completed',
-    year: '2023',
-    company: 'DRDO',
-    features: [
-      'Intuitive user interface',
-      'Validated through usability testing',
-      'Streamlined user interactions',
-      'Cross-platform compatibility'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  },
-  {
-    id: 5,
-    title: '2D Data Visualization Tool',
-    description: 'Developed a Python-based 2D plotting tool backed by Flask API for enhanced data visualization and improved decision-making clarity.',
-    technologies: ['Python', 'Flask', 'Data Visualization', 'API Development', 'Charts'],
-    category: 'Data Visualization',
-    status: 'Completed',
-    year: '2023',
-    company: 'DRDO',
-    features: [
-      'Interactive 2D plotting',
-      'Flask API backend',
-      'Real-time data processing',
-      'Decision-making insights'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  },
-  {
-    id: 6,
-    title: 'IPFS Trading Platform Engine',
-    description: 'Redesigned trading platform core engine with IPFS Merkle DAG and pub-sub system, reducing transaction times by 70%.',
-    technologies: ['Node.js', 'Express.js', 'IPFS', 'Merkle DAG', 'Blockchain', 'Pub-Sub'],
-    category: 'Blockchain Development',
-    status: 'Completed',
-    year: '2023',
-    company: 'Verified Network',
-    features: [
-      '70% reduction in transaction times',
-      'IPFS Merkle DAG implementation',
-      'Pub-sub messaging system',
-      'Enhanced marketplace efficiency'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  },
-  {
-    id: 7,
-    title: 'Automated CI/CD Pipeline',
-    description: 'Engineered comprehensive CI/CD pipeline using GitHub Actions and AWS CodeDeploy for fully automated deployments.',
-    technologies: ['GitHub Actions', 'AWS CodeDeploy', 'DevOps', 'Automation', 'Cloud'],
-    category: 'DevOps',
-    status: 'Completed',
-    year: '2023',
-    company: 'Verified Network',
-    features: [
-      'Fully automated deployments',
-      'GitHub Actions integration',
-      'AWS CodeDeploy implementation',
-      'Accelerated release cycles'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  },
-  {
-    id: 8,
-    title: 'Social Media Platform',
-    description: 'Developed a scalable social media platform with WebSocket-based voice/video calling, serving 10,000+ active users.',
-    technologies: ['Node.js', 'Express.js', 'Next.js', 'MongoDB', 'WebSocket', 'WebRTC'],
-    category: 'Full Stack Development',
-    status: 'Completed',
-    year: '2022',
-    company: 'Metarootz',
-    features: [
-      '10,000+ active users',
-      'WebSocket voice/video calling',
-      'Scalable architecture',
-      'Real-time communication'
-    ],
-    images: [],
-    githubUrl: null,
-    liveUrl: null,
-    isPrivate: true
-  }
+
 ]
 
 const Projects = () => {
@@ -188,8 +49,8 @@ const Projects = () => {
   const categories = ['All', ...new Set(projects.map(project => project.category))]
 
   // Filter projects based on selected category
-  const filteredProjects = filter === 'All' 
-    ? projects 
+  const filteredProjects = filter === 'All'
+    ? projects
     : projects.filter(project => project.category === filter)
 
   return (
@@ -209,7 +70,7 @@ const Projects = () => {
             backend development, data visualization, blockchain, and DevOps. Each project
             represents a solution to real-world challenges.
           </p>
-          
+
           {/* Category Filter */}
           <div className="filter-container">
             {categories.map(category => (
@@ -227,7 +88,7 @@ const Projects = () => {
         <div className="projects-container">
           <div className="projects-grid">
             {filteredProjects.map((project, index) => (
-              <div key={project.id} className="project-card" style={{animationDelay: `${index * 0.1}s`}}>
+              <div key={project.id} className="project-card" style={{ animationDelay: `${index * 0.1}s` }}>
                 {/* Project Images Section - with provision for multiple images */}
                 {project.images && project.images.length > 0 && (
                   <div className="project-images">
@@ -238,7 +99,7 @@ const Projects = () => {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="project-content">
                   <div className="project-header">
                     <div className="project-meta">

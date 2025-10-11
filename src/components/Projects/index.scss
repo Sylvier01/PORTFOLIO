@@ -1,9 +1,19 @@
 .projects-page {
     .text-zone {
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+
+        h1 {
+            font-size: 4.5rem !important;
+        }
+
         p {
             margin-bottom: 20px;
             color: #fff;
-            font-size: 17px;
+            font-size: 1.75rem !important;
             font-family: sans-serif;
             font-weight: 300;
             max-width: 100%;
@@ -19,8 +29,8 @@
 
     .filter-btn {
         padding: 8px 16px;
-        background: rgba(255,0,0,0.1);
-        border: 1px solid rgba(255,0,0,0.3);
+        background: rgba(255, 0, 0, 0.1);
+        border: 1px solid rgba(255, 0, 0, 0.3);
         border-radius: 20px;
         color: #fff;
         font-size: 14px;
@@ -29,8 +39,8 @@
         transition: all 0.3s ease;
 
         &:hover {
-            background: rgba(255,0,0,0.2);
-            border-color: rgba(255,0,0,0.5);
+            background: rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.5);
         }
 
         &.active {
@@ -79,8 +89,8 @@
 }
 
 .project-card {
-    background: rgba(255,0,0,0.05);
-    border: 1px solid rgba(255,0,0,0.2);
+    background: rgba(255, 0, 0, 0.05);
+    border: 1px solid rgba(255, 0, 0, 0.2);
     border-radius: 15px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -88,10 +98,10 @@
     backdrop-filter: blur(10px);
 
     &:hover {
-        background: rgba(255,0,0,0.1);
-        border-color: rgba(255,0,0,0.4);
+        background: rgba(255, 0, 0, 0.1);
+        border-color: rgba(255, 0, 0, 0.4);
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(255,0,0,0.2);
+        box-shadow: 0 15px 35px rgba(255, 0, 0, 0.2);
     }
 }
 
@@ -128,7 +138,7 @@
         flex-wrap: wrap;
 
         .category {
-            background: rgba(255,0,0,0.2);
+            background: rgba(255, 0, 0, 0.2);
             color: #ff4500;
             padding: 4px 12px;
             border-radius: 12px;
@@ -312,79 +322,129 @@
     }
 }
 
-/* Responsive design */
-@media screen and (max-width: 1200px) {
-    .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-    }
-}
+
 
 @media screen and (max-width: 768px) {
-    .projects-container {
-        position: relative;
-        right: auto;
-        top: auto;
+    .projects-page .text-zone {
+        position: absolute;
+        padding-left: 10%;
+        left: 15%;
+        top: 15% !important;
         transform: none;
-        width: 100%;
-        height: auto;
-        margin-top: 20px;
-        padding: 0 20px;
+        width: 90%;
+
+        h1 {
+            font-size: 2.5rem !important;
+        }
+
+        p {
+            font-size: 1.75rem !important;
+        }
+
+        .filter-container {
+            margin-top: 2vh;
+        }
+    }
+
+    .projects-container {
+        position: absolute;
+        left: 20%;
+        top: 50%;
+        transform: none;
+        width: 70%;
+        height: 50%;
+        padding-right: 2vw;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 10px 0;
+        gap: 1.5vh;
+        padding: 0.5vh 0;
     }
 
     .project-card {
-        margin-bottom: 20px;
+        margin-bottom: 1vh;
+        border-radius: 1vw;
     }
 
-    .projects-page .text-zone {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        width: 100%;
-        margin-bottom: 30px;
+    .project-images {
+        height: 15vh;
+    }
 
-        .filter-container {
-            margin-top: 20px;
+    .project-content {
+        padding: 1.5vw;
+    }
+
+    .project-header {
+        margin-bottom: 1vh;
+
+        .project-meta {
+            gap: 0.8vw;
+            margin-bottom: 0.8vh;
+
+            .category,
+            .year,
+            .status {
+                padding: 0.4vh 1vw;
+                font-size: 2.5vw;
+            }
+        }
+
+        .project-title {
+            font-size: 4vw;
+            margin: 0 0 0.5vh 0;
+        }
+
+        .company {
+            font-size: 3vw;
         }
     }
 
-    .project-content {
-        padding: 20px;
+    .project-description {
+        font-size: 3vw;
+        line-height: 1.4;
+        margin-bottom: 1vh;
     }
 
-    .project-header .project-meta {
-        gap: 10px;
+    .project-features {
+        margin-bottom: 1vh;
+
+        h4 {
+            font-size: 3vw;
+            margin: 0 0 0.8vh 0;
+        }
+
+        ul li {
+            font-size: 2.8vw;
+            margin-bottom: 0.5vh;
+            padding-left: 3vw;
+
+            &:before {
+                font-size: 2vw;
+            }
+        }
+    }
+
+    .technologies {
+        gap: 0.8vw;
+        margin-bottom: 1vh;
+
+        .tech-tag {
+            padding: 0.4vh 1.2vw;
+            font-size: 2.3vw;
+        }
     }
 
     .project-links {
-        gap: 10px;
-    }
-}
+        gap: 1vw;
 
-@media screen and (max-width: 480px) {
-    .projects-container {
-        padding: 0 15px;
-    }
+        .project-link,
+        .private-indicator {
+            font-size: 2.8vw;
 
-    .project-content {
-        padding: 15px;
-    }
-
-    .project-header .project-title {
-        font-size: 18px;
-    }
-
-    .filter-container {
-        .filter-btn {
-            padding: 6px 12px;
-            font-size: 12px;
+            svg {
+                font-size: 3vw;
+            }
         }
     }
 }
