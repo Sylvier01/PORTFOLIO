@@ -9,7 +9,7 @@
         left: 5%;
         top: 50%;
         transform: translateY(-50%);
-        width: 32%;
+        width: 32% !important;
         z-index: 20;
 
         h1 {
@@ -34,7 +34,7 @@
     right: 3%;
     top: 50%;
     transform: translateY(-50%);
-    width: 58%;
+    width: 50% !important;
     height: 80%;
     overflow-y: auto;
     padding-right: 20px;
