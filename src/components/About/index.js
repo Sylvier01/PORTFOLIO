@@ -41,7 +41,7 @@ const About = () => {
             />
           </h1>
           <p>
-            I’m a Three.js developer with over 2 years of
+            I’m a Three.js developer with over 4 years of
             experience, specializing in Product configurators, 3D animations and
             visualizations. I do a lot of shader programming using GLSL too.
           </p>

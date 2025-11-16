@@ -45,15 +45,11 @@ const Skills = () => {
             />
           </h1>
           <p>
-            I'm a Three.js developer passionate about creating immersive 3D web experiences. 
-            My expertise spans from 3D modeling in Blender to implementing complex WebGL 
-            shaders and interactive animations.
+            I'm a Three.js developer who loves to build cool stuff online 
           </p>
           <p>
-            I specialize in building modern web applications with React and Next.js, 
-            crafting responsive designs with Tailwind CSS, and developing mobile 
-            experiences with React Native. My focus is on performance optimization 
-            and creating seamless user interactions in 3D environments.
+            I use React with react-three-fiber, tailwind for styling, react native for some mobile apps, and GLSL for shaders.
+            check out my work on my youtube channel and github account.
           </p>
         </div>
 
