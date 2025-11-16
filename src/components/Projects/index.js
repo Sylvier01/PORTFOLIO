@@ -8,30 +8,110 @@ import AnimatedLetters from '../AnimatedLetters'
 import BokehBackground from '../BokehBackground'
 import './index.scss'
 
-// Projects data - easily scalable for future additions
 const projects = [
   {
     id: 1,
-    title: 'Real-time Notification System',
-    description: 'Built a comprehensive real-time notification module using Django and MongoDB with end-to-end encryption for secure delivery of critical alerts.',
-    technologies: ['Django', 'MongoDB', 'WebSocket', 'End-to-End Encryption', 'Python'],
-    category: 'Backend Development',
+    title: 'City Simulator',
+    description: 'A low-poly city simulator built with React Three Fiber, featuring dynamic day and night cycles, interactive hotpoints for detailed information, and an engaging UI that changes with the time of day. Inspired by Anderson Mancini’s Windland project.',
+    technologies: ['React Three Fiber', 'Three.js', 'React', 'JavaScript', 'WebGL'],
+    category: '3D Web Development',
     status: 'Completed',
-    year: '2024',
-    company: 'Mak Design Private Limited',
+    year: '2025',
+    company: 'Personal Project',
     features: [
-      'Real-time delivery of notifications',
-      'End-to-end encryption for security',
-      'Scalable MongoDB backend',
-      'WebSocket integration for instant updates'
+      'Dynamic day and night cycles',
+      'Interactive hotpoints with details',
+      'Low-poly aesthetic for performance',
+      'Original and stylized 3D models integrated'
     ],
-    images: [], // Provision for multiple images
-    githubUrl: null, // Private project
-    liveUrl: null, // Private project
+    images: [], // Add screenshots or GIFs here
+    githubUrl: 'https://github.com/washington254/mafer-city-2',
+    liveUrl: 'https://mafer-city-2.vercel.app/',
+    isPrivate: false
+  },
+  {
+    id: 2,
+    title: 'Web Browser Game',
+    description: 'A private 3D web-based game built with React Three Fiber and Rapier physics engine. Set in a low-poly city with diverse buildings and dynamic physics, this project is an early game prototype inspired by @swifterik’s sketchbook game.',
+    technologies: ['React Three Fiber', 'Three.js', 'Rapier Physics Engine', 'JavaScript', 'WebGL'],
+    category: 'Game Development',
+    status: 'Private',
+    year: '2024',
+    company: 'Personal Project',
+    features: [
+      '3D low-poly city environment',
+      'Physics-driven interactions using Rapier',
+      'Easily replaceable character models',
+      'Optimized for web browser gameplay'
+    ],
+    images: [], // Add screenshots or GIFs
+    githubUrl: 'https://github.com/washington254/r3f-game',
+    liveUrl: 'https://r3f-game-nine.vercel.app/',
     isPrivate: true
   },
+  {
+    id: 3,
+    title: 'Ring Configurator',
+    description: 'An interactive ring configurator that allows users to customize diamond colors and ring shapes. Built using THREE.js, WebGI, and GSAP ScrollTrigger, adapted from Anderson Mancini’s source code.',
+    technologies: ['THREE.js', 'WebGI', 'GSAP', 'JavaScript', 'React'],
+    category: '3D Web Development',
+    status: 'Completed',
+    year: '2025',
+    company: 'Personal Project',
+    features: [
+      'Customizable diamond colors',
+      'Selectable ring shapes',
+      'Smooth scroll-triggered animations',
+      'Responsive and interactive UI'
+    ],
+    images: [], // Add screenshots or GIFs
+    githubUrl: null,
+    liveUrl: 'https://ring-config-minified.vercel.app/',
+    isPrivate: false
+  },
+  {
+    id: 4,
+    title: 'Morph Particles',
+    description: 'A particle system that morphs into different shapes as you scroll, built with Three.js and GSAP. Based on MisterPrada’s morph particle system with small custom tweaks.',
+    technologies: ['Three.js', 'GSAP', 'JavaScript', 'WebGL'],
+    category: '3D Web Development',
+    status: 'Completed',
+    year: '2024',
+    company: 'Personal Project',
+    features: [
+      'Particles morph dynamically on scroll',
+      'Smooth 3D animations',
+      'Interactive and visually appealing design',
+      'Customizable shapes and effects'
+    ],
+    images: [], // Add screenshots or GIFs
+    githubUrl: 'https://morph-particles-ten.vercel.app/',
+    liveUrl: 'https://morph-particles-ten.vercel.app/',
+    isPrivate: false
+  },
+  {
+    id: 5,
+    title: '3D Showcase Website',
+    description: 'My most famous website (50k YouTube views) built using THREE.js, WebGI, and GSAP ScrollTrigger. Source code adapted from @codewithsadee and 3D models from @pixotronics. This marks the start of my Three.js website series.',
+    technologies: ['THREE.js', 'WebGI', 'GSAP', 'JavaScript', 'React'],
+    category: '3D Web Development',
+    status: 'Completed',
+    year: '2025',
+    company: 'Personal Project',
+    features: [
+      'Immersive 3D web experience',
+      'Scroll-triggered animations',
+      'High-quality 3D models integrated',
+      'Showcase for Three.js web development skills'
+    ],
+    images: [], // Add screenshots or GIFs
+    githubUrl: null,
+    liveUrl: "https://www.youtube.com/watch?v=aAE_9lvU0ik",
+    isPrivate: false
+  }
+];
 
-]
+
 
 const Projects = () => {
   const projectsArray = 'Projects'.split('')
@@ -66,9 +146,7 @@ const Projects = () => {
             />
           </h1>
           <p>
-            A showcase of my technical projects spanning various domains including
-            backend development, data visualization, blockchain, and DevOps. Each project
-            represents a solution to real-world challenges.
+            A showcase of the projects i love, there are many more projects on my github and youtube but these are my personal favorites.
           </p>
 
           {/* Category Filter */}

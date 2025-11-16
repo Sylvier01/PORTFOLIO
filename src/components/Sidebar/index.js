@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, NavLink } from 'react-router-dom'
 
 
-import LogoS from '../../assets/images/logo-s.png'
+import LogoS from '../../assets/images/logo.png'
 
 import './index.scss'
 
@@ -130,18 +130,7 @@ const Sidebar = () => {
           <ul>
             <li>
               <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-                title="LinkedIn"
-              >
-                <FontAwesomeIcon icon={faLinkedin} />
-                {isExpanded && <span>LinkedIn</span>}
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
+                href="https://www.youtube.com/@washingtonmaina"
                 target="_blank"
                 rel="noreferrer"
                 title="youtube"
@@ -152,7 +141,7 @@ const Sidebar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://github.com/washington254"
                 target="_blank"
                 rel="noreferrer"
                 title="GitHub"
@@ -163,7 +152,7 @@ const Sidebar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://x.com/Washing50752362"
                 target="_blank"
                 rel="noreferrer"
                 title="Twitter"

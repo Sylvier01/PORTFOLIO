@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react'
 import Loader from 'react-loaders'
 import { Link } from 'react-router-dom'
 
-import AnimatedLetters from '../AnimatedLetters'
 import LiquidBackground from '../LiquidBackground'
-import Logo from './Logo'
-import LogoTitle from '../../assets/images/logo-s.png'
 
 import './index.scss'
 
