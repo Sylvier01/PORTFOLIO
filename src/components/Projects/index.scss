@@ -92,7 +92,6 @@
     background: rgba(255, 0, 0, 0.05);
     border: 1px solid rgba(255, 0, 0, 0.2);
     border-radius: 15px;
-    overflow: hidden;
     transition: all 0.3s ease;
     animation: fadeInUp 0.6s ease-out both;
     backdrop-filter: blur(10px);
@@ -108,7 +107,6 @@
 .project-images {
     position: relative;
     height: 200px;
-    overflow: hidden;
     background: rgba(0, 0, 0, 0.3);
 
     .image-carousel {
@@ -454,7 +452,7 @@
         position: absolute;
         left: 15%;
         padding-left: 14%;
-        top: 25% !important;
+        top: 15% !important;
         transform: none;
         width: 90% !important;
 
@@ -472,13 +470,14 @@
     }
 
     .projects-container {
-        position: absolute;
+        position: relative;
         left: 20%;
-        top: 50%;
+        top: 40%;
         transform: none;
         width: 70%;
-        height: 100dvh;
+        // height: 0% !important;
         padding-right: 2vw;
+        // overflow-y: auto;
     }
 
     .projects-grid {
