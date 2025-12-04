@@ -71,8 +71,8 @@ const Experience = () => {
             />
           </h1>
           <p>
-            My professional journey spans across various industries and technologies,
-            from big name brands to small indie companies, here are some of them.
+            My professional journey spans across various industries and technologies.
+            from big name companies to small indie places, here are some of them
           </p>
         </div>
 
