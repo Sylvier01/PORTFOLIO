@@ -325,11 +325,11 @@
 @media screen and (max-width: 768px) {
     .projects-page .text-zone {
         position: absolute;
-        padding-left: 10%;
         left: 15%;
+        padding-left: 14%;
         top: 15% !important;
         transform: none;
-        width: 90%;
+        width: 90% !important;
 
         h1 {
             font-size: 2.5rem !important;
@@ -344,15 +344,19 @@
         }
     }
 
+
     .projects-container {
-        position: absolute;
+        position: relative;
         left: 20%;
-        top: 50%;
+        top: 0%;
+        margin-top: 60%;
         transform: none;
         width: 70%;
-        height: 100%;
+        // height: 0% !important;
         padding-right: 2vw;
+        // overflow-y: auto;
     }
+
 
     .projects-grid {
         grid-template-columns: 1fr;
@@ -472,7 +476,8 @@
     .projects-container {
         position: relative;
         left: 20%;
-        top: 40%;
+        top: 0%;
+        margin-top: 60%;
         transform: none;
         width: 70%;
         // height: 0% !important;

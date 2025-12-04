@@ -272,9 +272,9 @@
 
         .text-zone {
             position: relative;
-            left: auto !important;
-            top: auto !important;
-            transform: none;
+            left: 50% !important;
+            top: 10% !important;
+            transform: translateX(-50%);
             width: 100% !important;
             padding: 20px;
             box-sizing: border-box;
@@ -286,7 +286,7 @@
             }
 
             p {
-                font-size: 1rem !important;
+                font-size: 1.3rem !important;
                 margin-bottom: 30px;
             }
         }
@@ -300,6 +300,7 @@
         width: 100% !important;
         height: auto;
         padding: 0 20px;
+        padding-left: 15%;
         box-sizing: border-box;
         overflow: visible;
     }
@@ -307,11 +308,127 @@
     .timeline {
         width: 100%;
         padding-left: 30px;
+        margin-top: 50%;
         /* Space for the line */
         box-sizing: border-box;
 
         &::before {
-            left: 20px;
+            left: 30px;
+            /* Position line on the left */
+            margin-left: 0;
+        }
+    }
+
+    .timeline-item {
+        width: 100%;
+        margin: 30px 0;
+        left: 0 !important;
+        /* Reset left/right positioning */
+
+        &.left,
+        &.right {
+            text-align: left;
+            left: 0;
+        }
+
+        .timeline-marker {
+            left: -16px !important;
+            /* Align with the line (20px - 15px/2 approx) */
+            right: auto !important;
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+
+        .timeline-content {
+            margin-left: 20px !important;
+            /* Clear the marker */
+            margin-right: 0 !important;
+            border-radius: 10px !important;
+            padding: 20px;
+            width: auto;
+        }
+    }
+
+    .job-header {
+        .company-name {
+            font-size: 1.2rem;
+        }
+
+        .position {
+            font-size: 1rem;
+        }
+
+        .job-meta {
+            font-size: 0.9rem;
+        }
+    }
+
+    .achievements {
+        li {
+            font-size: 0.9rem;
+            padding-left: 15px;
+
+            &:before {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+/* Responsive design */
+@media screen and (max-width: 400px) {
+    .experience-page {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+        padding-bottom: 50px;
+
+        .text-zone {
+            position: relative;
+            left: 50% !important;
+            top: 10% !important;
+            transform: translateX(-50%);
+            margin-top: 30%;
+            width: 100% !important;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+
+            h1 {
+                font-size: 2.5rem !important;
+                margin-top: 60px;
+            }
+
+            p {
+                font-size: 1.3rem !important;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .experience-container {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100% !important;
+        height: auto;
+        padding: 0 20px;
+        padding-left: 15%;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .timeline {
+        width: 100%;
+        padding-left: 30px;
+        margin-top: 100%;
+        /* Space for the line */
+        box-sizing: border-box;
+
+        &::before {
+            left: 30px;
             /* Position line on the left */
             margin-left: 0;
         }
