@@ -1,10 +1,10 @@
-.LogoName{
-      color: #fff;
-      font-size: 26px;
-      line-height: 63px;
-      margin: 0;
-      font-family: 'Coolvetica';
-      font-weight: 400;
+.LogoName {
+  color: #fff;
+  font-size: 26px;
+  line-height: 63px;
+  margin: 0;
+  font-family: 'Coolvetica';
+  font-weight: 400;
 
 }
 
@@ -101,7 +101,7 @@
         }
 
         &:after {
-         display: none;
+          display: none;
         }
       }
 
@@ -128,6 +128,54 @@
       letter-spacing: 3px;
     }
   }
+
+  @media screen and (max-width: 400px) {
+    .text-zone {
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      margin: 5%;
+      text-align: center;
+      padding: 0 20px;
+
+      h1 {
+        font-size: 2.5rem;
+        line-height: 48px;
+
+        &:before {
+          display: none;
+        }
+
+        &:after {
+          display: none;
+        }
+      }
+
+      img {
+        margin-left: 10px;
+        width: 28px;
+      }
+    }
+
+    h2 {
+      font-size: 1 rem;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .flat-button {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      float: none;
+      margin-top: 20px;
+      font-size: 12px;
+      padding: 12px 20px;
+      letter-spacing: 3px;
+    }
+  }
+
 
 
 
