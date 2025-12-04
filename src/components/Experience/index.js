@@ -71,9 +71,8 @@ const Experience = () => {
             />
           </h1>
           <p>
-            My professional journey spans across various industries and technologies,
-            from defense systems to trading platforms and social media applications.
-            Each role has contributed to my growth as a versatile software engineer.
+            My professional journey spans across various industries and technologies. 
+            from big name companies to small indie places, here are some of them
           </p>
         </div>
 
