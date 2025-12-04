@@ -448,3 +448,128 @@
         }
     }
 }
+
+@media screen and (max-width: 400px) {
+    .projects-page .text-zone {
+        position: absolute;
+        left: 15%;
+        padding-left: 14%;
+        top: 25% !important;
+        transform: none;
+        width: 90% !important;
+
+        h1 {
+            font-size: 2.3rem !important;
+        }
+
+        p {
+            font-size: 1.5rem !important;
+        }
+
+        .filter-container {
+            margin-top: 2vh;
+        }
+    }
+
+    .projects-container {
+        position: absolute;
+        left: 20%;
+        top: 50%;
+        transform: none;
+        width: 70%;
+        height: 100dvh;
+        padding-right: 2vw;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5vh;
+        padding: 0.5vh 0;
+    }
+
+    .project-card {
+        margin-bottom: 1vh;
+        border-radius: 1vw;
+    }
+
+    .project-images {
+        height: 15vh;
+    }
+
+    .project-content {
+        padding: 1.5vw;
+    }
+
+    .project-header {
+        margin-bottom: 1vh;
+
+        .project-meta {
+            gap: 0.8vw;
+            margin-bottom: 0.8vh;
+
+            .category,
+            .year,
+            .status {
+                padding: 0.4vh 1vw;
+                font-size: 2.5vw;
+            }
+        }
+
+        .project-title {
+            font-size: 4vw;
+            margin: 0 0 0.5vh 0;
+        }
+
+        .company {
+            font-size: 3vw;
+        }
+    }
+
+    .project-description {
+        font-size: 3vw;
+        line-height: 1.4;
+        margin-bottom: 1vh;
+    }
+
+    .project-features {
+        margin-bottom: 1vh;
+
+        h4 {
+            font-size: 3vw;
+            margin: 0 0 0.8vh 0;
+        }
+
+        ul li {
+            font-size: 2.8vw;
+            margin-bottom: 0.5vh;
+            padding-left: 3vw;
+
+            &:before {
+                font-size: 2vw;
+            }
+        }
+    }
+
+    .technologies {
+        gap: 0.8vw;
+        margin-bottom: 1vh;
+
+        .tech-tag {
+            padding: 0.4vh 1.2vw;
+            font-size: 2.3vw;
+        }
+    }
+
+    .project-links {
+        gap: 1vw;
+
+        .project-link,
+        .private-indicator {
+            font-size: 2.8vw;
+
+            svg {
+                font-size: 3vw;
+            }
+        }
+    }
+}
