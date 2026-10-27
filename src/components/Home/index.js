@@ -19,11 +19,12 @@ const Home = () => {
       <div className="container home-page">
         <div className="text-zone">
          <h1>
-          Hey Am Washington <br/>
+          Hey <br/>
+          Am Washington <br/>
           A 3D Web Developer 
          </h1>
           <h2>
-           have a project? talk to me through here <br/>            
+           Have a project? Contact me to get started. <br/>            
           </h2>
        
         </div>
